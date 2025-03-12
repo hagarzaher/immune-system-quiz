@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Immune System Quiz</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; }
+        .question { margin-bottom: 15px; }
+        .result { margin-top: 20px; font-weight: bold; }
+    </style>
+</head>
+<body>
+
+    <h1>Immune System Quiz</h1>
+    
+    <form id="quizForm">
+        <div class="question">
+            <p>1. B and T lymphocytes arise from:</p>
+            <label><input type="radio" name="q1" value="A"> A. Hematopoietic stem cells</label><br>
+            <label><input type="radio" name="q1" value="B"> B. Germ cells</label><br>
+            <label><input type="radio" name="q1" value="C"> C. Somatic cells</label><br>
+            <label><input type="radio" name="q1" value="D"> D. Spermatocytes</label>
+        </div>
+
+        <div class="question">
+            <p>2. Which system protects our body against disease-causing microbes?</p>
+            <label><input type="radio" name="q2" value="A"> A. Immune system</label><br>
+            <label><input type="radio" name="q2" value="B"> B. Digestive system</label><br>
+            <label><input type="radio" name="q2" value="C"> C. Excretory system</label><br>
+            <label><input type="radio" name="q2" value="D"> D. Respiratory system</label>
+        </div>
+
+        <div class="question">
+            <p>3. Which immunity is present from birth?</p>
+            <label><input type="radio" name="q3" value="A"> A. Innate Immunity</label><br>
+            <label><input type="radio" name="q3" value="B"> B. Active immunity</label><br>
+            <label><input type="radio" name="q3" value="C"> C. Passive immunity</label><br>
+            <label><input type="radio" name="q3" value="D"> D. Acquired immunity</label>
+        </div>
+
+        <button type="button" onclick="checkAnswers()">Submit</button>
+    </form>
+
+    <p class="result" id="result"></p>
+
+    <script>
+        function checkAnswers() {
+            let score = 0;
+            let answers = { q1: "A", q2: "A", q3: "A" };
+
+            for (let q in answers) {
+                let selected = document.querySelector(`input[name="${q}"]:checked`);
+                if (selected && selected.value === answers[q]) {
+                    score++;
+                }
+            }
+
+            document.getElementById("result").innerText = `You scored ${score} out of 3!`;
+        }
+    </script>
+
+</body>
+</html>
+
+
+
+ 
